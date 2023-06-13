@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Docker API
+
+This application is a simple API that allows you to manage docker containers.
 
 ## Getting Started
 
-First, run the development server:
+To get started you need to run the following commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+$ git clone https://github.com/Meierschlumpf/docker-api.git
+$ cd docker-api
+$ yarn install
+$ yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The API exposes the following endpoints:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### POST /api/containers/[id]/start
 
-## Learn More
+Starts a container.
 
-To learn more about Next.js, take a look at the following resources:
+### POST /api/containers/[id]/stop
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Stops a container.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### POST /api/containers/[id]/restart
 
-## Deploy on Vercel
+Restarts a container.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The following environment variables are required to run the application:
+
+```env
+DOCKER_HOST=<your docker host>
+DOCKER_PORT=<your docker port>
+```
+
+You can simply create a `.env` file in the root directory of the project and add the variables there.
